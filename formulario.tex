@@ -1,0 +1,134 @@
+\section{Formulario}
+
+
+\subsection{Probabilidad}
+\begin{itemize}
+    \item \hyperref[sec:axiomasKolmogorov]{\textbf{Axiomas de Kolmogorov}}
+
+    \begin{enumerate}
+        \item $P(A) \geq 0$ para todo evento $A$. 
+        \item $P(\Omega) = 1$, donde $\Omega$ es el espacio muestral. 
+        \item Si $A_1, A_2, \ldots$ son eventos mutuamente excluyentes, entonces:
+        \[
+          P\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)
+        \]
+    \end{enumerate}
+
+    \item \hyperref[sec:probComplemento]{\textbf{Probabilidad del complemento}}:
+    $P(A^c) = 1 - P(A)$
+
+    \item \hyperref[sec:reglaAdicion]{\textbf{Regla de la adición}}: 
+    $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+    \item \hyperref[sec:reglaMultiplicacion]{\textbf{Regla de la multiplicación}}:
+    \begin{itemize}
+      \item $P(A \cap B) = P(A) \cdot P(B)$, $A$ y $B$ independientes.
+      \item $P(A \cap B) = P(A) \cdot P(B|A)$, $A$ y $B$ dependientes.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Probabilidad condicional}
+\begin{itemize}
+    \item \hyperref[sec:probabilidadCondicional]{\textbf{Definición}}: $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+
+    \item \hyperref[sec:independencia]{\textbf{Independencia}}: $$P(A|B) = P(A) \quad \text{o} \quad P(B|A) = P(B)$$
+
+    \item \hyperref[sec:leyProbTotal]{\textbf{Ley de la probabilidad total}}: $$P(B) = \sum_{i=1}^{n} P(A_i) \cdot P(B|A_i)$$
+
+    \item \hyperref[sec:reglaBayes]{\textbf{Regla de Bayes}}: $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
+\end{itemize}
+
+\subsection{Variables aleatorias}
+\subsubsection{Variables aleatorias discretas}
+\begin{itemize}
+    \item \hyperref[sec:variableAleatoria]{\textbf{Definición}}: Una variable aleatoria es una función que asigna un número real a cada resultado en el espacio muestral.
+
+    \item \hyperref[sec:funcionDistribucion]{\textbf{Función de distribución}}: $F(x) = P(X \leq x)$
+
+    \item \hyperref[sec:esperanza]{\textbf{Esperanza}}: $E(X) = \sum_{i=1}^{n} x_i \cdot P(X = x_i)$
+    \item \hyperref[sec:varianza]{\textbf{Varianza}}: $Var(X) = \sum_{i=1}^{n} (x_i - E(X))^2 \cdot P(X = x_i)$ 
+\end{itemize}
+
+\subsubsection{Variables aleatorias continuas}
+\begin{itemize}
+    \item \hyperref[sec:variableAleatoria]{\textbf{Definición}}: Una variable aleatoria es una función que asigna un número real a cada resultado en el espacio muestral.
+
+    \item \hyperref[sec:funcionDensidad]{\textbf{Función de densidad}}:
+    \begin{enumerate}
+      \item $f(x) \geq 0$ para todo $x$. 
+      \item $$\int_{-\infty}^{\infty} f(x) \, dx = 1$$. 
+    \end{enumerate}
+
+    \item \hyperref[sec:funcionDistribucion]{\textbf{Función de distribución}}: $F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) \, dt$
+
+    \item \hyperref[sec:esperanza]{\textbf{Esperanza}}: $E(X) = \int_{-\infty}^{\infty} x \cdot f(x) \, dx$
+    \item \hyperref[sec:varianza]{\textbf{Varianza}}: $Var(X) = \int_{-\infty}^{\infty} (x - E(X))^2 \cdot f(x) \, dx$
+\end{itemize}
+
+\subsubsection{Propiedades}
+\begin{itemize}
+    \item \hyperref[sec:esperanza]{\textbf{Esperanza}}: $E[XY] = E[X]E[Y]$ si $X$ y $Y$ son independientes.
+    \item \hyperref[sec:varianza]{\textbf{Varianza}}: $Var(X) = E(X^2) - (E(X))^2$ 
+
+    \item \hyperref[sec:esperanzaCombinacion]{\textbf{Esperanza de una combinación lineal}}: $E(aX + b) = a \cdot E(X) + b$
+
+    \item \hyperref[sec:varianzaCombinacion]{\textbf{Varianza de una combinación lineal}}: $Var(aX + b) = a^2 \cdot Var(X)$
+\end{itemize}
+
+\subsection{Multivariadas}
+\begin{itemize}
+  \item \hyperref[sec:probabilidadMarginal]{\textbf{Probabilidad marginal}}: $P(X = x) = \int_{-\infty}^{\infty} f(x, y) \, dy = \sum_{j=1}^{m} p(x, y_j)$
+
+  \item \hyperref[sec:independencia]{\textbf{Independencia}}: $f(x, y) = f_X(x) \cdot f_Y(y)$
+
+  \item \hyperref[sec:probabilidadCondicionalMult]{\textbf{Probabilidad condicional}}: $P(X = x | Y = y) = \frac{P(X = x \cap Y = y)}{P(Y = y)}$ 
+ 
+  \item \hyperref[sec:esperanzaCondicionada]{\textbf{Esperanza condicionada}}: $E(X|Y = y) = \int_{-\infty}^{\infty} x \cdot f(x|y) \, dx$
+
+  \item \hyperref[sec:esperanzaMultivariada]{\textbf{Esperanza multivariada}}: $E(X) = \begin{bmatrix} E(X_1) \\ E(X_2) \\ \vdots \\ E(X_n) \end{bmatrix}$
+
+  \item \hyperref[sec:varianzaMultivariada]{\textbf{Varianza multivariada}}: $Var(X) = \begin{bmatrix} Var(X_1) & Cov(X_1, X_2) & \cdots & Cov(X_1, X_n) \\ Cov(X_2, X_1) & Var(X_2) & \cdots & Cov(X_2, X_n) \\ \vdots & \vdots & \ddots & \vdots \\ Cov(X_n, X_1) & Cov(X_n, X_2) & \cdots & Var(X_n) \end{bmatrix}$
+
+  \item \hyperref[sec:covarianza]{\textbf{Covarianza}}: 
+  \begin{enumerate}
+    \item $Cov(X, Y) = E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y]$
+    \item $Cov(X, X) = Var(X)$
+    \item $Cov(X, Y) = Cov(Y, X)$ 
+    \item $Cov(aX + bY, cW + dV) = ac \cdot Cov(X, W) + ad \cdot Cov(X, V) + bc \cdot Cov(Y, W) + bd \cdot Cov(Y, V)$ 
+    \item Si $X$ y $Y$ son independientes, entonces $Cov(X, Y) = 0$ 
+    \item $V[X+Y] = V[X] + V[Y] + 2 \cdot Cov(X, Y)$
+  \end{enumerate}
+
+  \item \hyperref[sec:correlacion]{\textbf{Correlación}}:
+  \begin{enumerate}
+    \item $Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X) \cdot Var(Y)}}$
+    \item $-1 \leq Corr(X, Y) \leq 1$
+  \end{enumerate}
+\end{itemize}
+
+\subsection{Distribuciones}
+\subsubsection{Discretas}
+
+\Distribucion{Bernoulli}{X \sim \text{Bernoulli}(p)}{p^x(1-p)^{1-x}}{-}{p}{p(1-p)}
+\Distribucion{Binomial}{X \sim \text{Binomial}(n, p)}{\binom{n}{x} p^x(1-p)^{n-x}}{F(x) = \sum_{i=0}^{x} \binom{n}{i} p^i(1-p)^{n-i}}{np}{np(1-p)}
+\Distribucion{Poisson}{X \sim \text{Poisson}(\lambda)}{\frac{e^{-\lambda} \lambda^x}{x!}}{F(x) = e^{-\lambda} \sum_{i=0}^{x} \frac{\lambda^i}{i!}}{\lambda}{\lambda}       
+\Distribucion{Geométrica}{X \sim \text{Geométrica}(p)}{(1-p)^{x-1}p}{F(x) = 1 - (1-p)^x}{\frac{1}{p}}{\frac{1-p}{p^2}}
+\Distribucion{Hipergeométrica}{X \sim \text{Hipergeométrica}(N, n, m)}{\frac{\binom{m}{x} \binom{N-m}{n-x}}{\binom{N}{n}}}{F(x) = \sum_{i=0}^{x} \frac{\binom{m}{i} \binom{N-m}{n-i}}{\binom{N}{n}}}{n \cdot \frac{m}{N}}{n \cdot \frac{m}{N} \cdot \frac{N-m}{N} \cdot \frac{N-n}{N-1}}
+
+\subsubsection{Continuas}
+
+\Distribucion{Uniforme}{X \sim \text{Uniforme}(a, b)}{\frac{1}{b-a}}{F(x) = \frac{x-a}{b-a}}{\frac{a+b}{2}}{\frac{(b-a)^2}{12}}
+\Distribucion{Exponencial}{X \sim \text{Exponencial}(\lambda)}{\lambda e^{-\lambda x}}{F(x) = 1 - e^{-\lambda x}}{\frac{1}{\lambda}}{\frac{1}{\lambda^2}}
+\Distribucion{Normal}{X \sim \text{Normal}(\mu, \sigma^2)}{\frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(x-\mu)^2}{2\sigma^2}}}{F(x) = \frac{1}{2} \left[1 + \text{erf}\left(\frac{x-\mu}{\sigma \sqrt{2}}\right)\right]}{\mu}{\sigma^2} \\
+\Distribucion{Normal estándar}{Z = \frac{X - \mu}{\sigma} \sim \text{Normal}(0, 1)}{\frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}}{F(x) = \frac{1}{2} \left[1 + \text{erf}\left(\frac{x}{\sqrt{2}}\right)\right]}{0}{1} \\
+\Distribucion{Chi-cuadrado}{X \sim \chi^2(n)}{\frac{1}{2^{n/2} \Gamma(n/2)} x^{n/2-1} e^{-x/2}}{F(x) = \frac{1}{\Gamma(n/2)} \gamma\left(\frac{n}{2}, \frac{x}{2}\right)}{n}{2n} \\
+\Distribucion{t de Student}{X \sim t(n)}{\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi} \Gamma\left(\frac{n}{2}\right)} \left(1 + \frac{x^2}{n}\right)^{-\frac{n+1}{2}}}{F(x) = \frac{1}{2} + \frac{1}{2} \text{sign}(x) \left(1 - \frac{2}{\pi} \arctan\left(\sqrt{\frac{n-2}{n}} x\right)\right)}{0}{\frac{n}{n-2} \quad \text{para } n > 2} \\
+\Distribucion{Gamma}{X \sim \Gamma(\alpha, \beta)}{\frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}}{F(x) = \frac{1}{\Gamma(\alpha)} \gamma(\alpha, \beta x)}{\frac{\alpha}{\beta}}{\frac{\alpha}{\beta^2}}  
+\Distribucion{Beta}{X \sim \text{Beta}(\alpha, \beta)}{\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1}}{F(x) = I_x(\alpha, \beta)}{\frac{\alpha}{\alpha + \beta}}{\frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}}  
+\Distribucion{Weibull}{X \sim \text{Weibull}(\lambda, k)}{k \lambda x^{k-1} e^{-\lambda x^k}}{F(x) = 1 - e^{-\lambda x^k}}{\frac{1}{\lambda} \Gamma\left(1 + \frac{1}{k}\right)}{\frac{1}{\lambda^2} \left[\Gamma\left(1 + \frac{2}{k}\right) - \left(\Gamma\left(1 + \frac{1}{k}\right)\right)^2\right]}
+
+
+\subsubsection{Multivariadas}
+
+\Distribucion{Normal multivariada}{X \sim \text{Normal}(\boldsymbol{\mu}, \boldsymbol{\Sigma})}{\frac{1}{(2\pi)^{n/2} |\boldsymbol{\Sigma}|^{1/2}} e^{-\frac{1}{2} (\boldsymbol{x} - \boldsymbol{\mu})^T \boldsymbol{\Sigma}^{-1} (\boldsymbol{x} - \boldsymbol{\mu})}}{-}{\boldsymbol{\mu}}{\boldsymbol{\Sigma}}\\
+\Distribucion{Multinomial}{X \sim \text{Multinomial}(n, \boldsymbol{p})}{\frac{n!}{x_1! \cdots x_k!} p_1^{x_1} \cdots p_k^{x_k}}{-}{n \cdot p_1}{n \cdot p_1(1-p_1) \cdots (1-p_k)}   
