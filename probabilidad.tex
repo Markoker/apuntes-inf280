@@ -1,0 +1,38 @@
+\section{Probabilidad}
+
+Imaginemos un ejemplo simple: lanzar un dado de seis caras. Este es un experimento aleatorio porque
+ no podemos predecir con certeza el resultado antes de realizarlo. Pero, si sabemos cuales son los resultados posibles.
+ Al tratarse de un dado de seis caras, los resultados posibles son $\{1, 2, 3, 4, 5, 6\}$, esto es el \textbf{Espacio muestral}
+ de nuestro experimento y lo denotaremos como $\Omega$.
+
+$$
+\Omega = \{1, 2, 3, 4, 5, 6\}
+$$
+
+Sin embargo, para este experimento en particular, no nos interesa saber el número que salió al lanzar el dado, sino que nos interesa
+saber si el número que salió es par o impar. Sabemos que los números pares que podemos obtener son $\{2, 4, 6\}$ y los impares son $\{1, 3, 5\}$.
+Estos dos conjuntos son \textbf{eventos} de nuestro experimento, y los denotaremos como $A$ y $B$ respectivamente. Al tomar el conjunto de
+todos nuestros eventos posibles, obtenemos el \textbf{Espacio de sucensos} de nuestro experimento, denotado por $\mathcal{F}$.
+
+$$
+\mathcal{F} = \{\{1, 3, 5\}, \{2, 4, 6\}\}
+$$
+
+Ahora, queremos asignar un valor numérico que, para cada evento de nuestro espacio de sucesos, nos indique la certidumbre de que
+ese evento ocurra. A esta medida de certidumbre la llamaremos \textbf{Probabilidad}. Si nuestro dado es justo, entonces
+cada evento de nuestro espacio de sucesos tiene la misma probabilidad de ocurrir. Pero, ¿cómo asignamos esta probabilidad?
+
+Una forma sencilla sería contar cuántos resultados favorecen a cada evento. Para $A=\{2,4,6\}$, hay 3 resultados favorables.
+Para $B=\{1,3,5\}$, también hay 3 resultados favorables. Si comparamos estos números con el total de resultados posibles ($6$), podemos decir
+que cada evento ocurre en $3$ de $6$ casos, es decir, en $\frac{1}{2}$ de los casos. La función que asigna a cada evento su probabilidad
+se llama \textbf{Función de probabilidad} y se denota como $P$.
+
+$$
+P(A) = P(B) = \frac{1}{2}
+$$
+
+Acabamos de definir las tres componente básicas de la teoría de la probabilidad: el espacio muestral, los eventos y la probabilidad. A este
+conjunto de componentes lo llamamos \textbf{Espacio de probabilidad} y lo denotamos como $(\Omega, \mathcal{F}, P)$.
+
+
+
