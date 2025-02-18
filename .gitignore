@@ -3,4 +3,6 @@
 *.dvi
 *.pdf
 .idea
+*.log
+*.out*
 

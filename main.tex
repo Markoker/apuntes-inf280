@@ -1,11 +1,32 @@
 \documentclass{article}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{graphicx}
-\usepackage{hyperref}      % Para hipervínculos
+\usepackage{hyperref}
 \usepackage{geometry}
 \usepackage{multicol}
 \usepackage{array}
 \geometry{a4paper, left=20mm, right=20mm, top=20mm, bottom=20mm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tcolorbox}
+\usepackage{bookmark} 
+\usepackage{xcolor}
+
+\definecolor{definitionH}{RGB}{215, 65, 65}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{\textbf{Apuntes INF280 - Estadística Computacional}}
+\fancyhead[C]{}
+\fancyhead[R]{Universidad Técnica Federico Santa María}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{\textbf{\thepage}}
+\fancyfoot[R]{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
 
 \newcommand{\Distribucion}[6]{
   $ 
@@ -17,13 +38,20 @@
   $
 }
 
+\newtcolorbox[auto counter, number within=section]{definicion}[1]{
+  title=Definición \thetcbcounter: #1,
+  fonttitle=\bfseries,
+  coltitle=white,
+  colbacktitle=definitionH
+}
 
-\title{Apuntes INF280}
-\author{Marco Repetto}
-\date{}
+\title{Apuntes\\INF280 - Estadística Computacional}
+\author{Marco Repetto, Joaquin Torres}
+\date{\today}
 
 \begin{document}
 \maketitle
+\newpage
 \tableofcontents
 \newpage
 

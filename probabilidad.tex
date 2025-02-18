@@ -1,5 +1,7 @@
 \section{Probabilidad}
 
+\subsection{Espacio de probabilidad}
+
 Imaginemos un ejemplo simple: lanzar un dado de seis caras. Este es un experimento aleatorio porque
  no podemos predecir con certeza el resultado antes de realizarlo. Pero, si sabemos cuales son los resultados posibles.
  Al tratarse de un dado de seis caras, los resultados posibles son $\{1, 2, 3, 4, 5, 6\}$, esto es el \textbf{Espacio muestral}
@@ -34,5 +36,32 @@ $$
 Acabamos de definir las tres componente básicas de la teoría de la probabilidad: el espacio muestral, los eventos y la probabilidad. A este
 conjunto de componentes lo llamamos \textbf{Espacio de probabilidad} y lo denotamos como $(\Omega, \mathcal{F}, P)$.
 
+De manera general, un experimento aleatorio es aquel cuyo resultado no puede predecirse con certeza antes de realizarlo, pero cuyos posibles resultados son conocidos y forman el espacio muestral $\Omega$. Dentro de $\Omega$, agrupamos ciertos resultados en eventos, que forman el espacio de sucesos $\mathcal{F}$. Para cuantificar la certidumbre de cada evento, definimos una función de probabilidad $P$, que asigna a cada evento un valor entre 0 y 1, cumpliendo ciertas propiedades matemáticas. La estructura completa formada por estas tres componentes, ($\Omega$,$\mathcal{F}$,$P$), se denomina espacio de probabilidad y es la base formal de la teoría de la probabilidad.
 
+\begin{definicion}{Espacio de probabilidad}
+Un \textbf{espacio de probabilidad} es una terna $(\Omega, \mathcal{F}, P)$, donde:
+
+\begin{itemize}
+    \item $\Omega$ es el espacio muestral, que contiene todos los resultados posibles de un experimento aleatorio.
+    \item $\mathcal{F}$ es el espacio de sucesos, que agrupa los resultados en eventos.
+    \item $P$ es la función de probabilidad, que asigna a cada evento un valor entre 0 y 1. 
+\end{itemize}
+\end{definicion}
+
+\subsection{Axiomas de Kolmogorov}
+
+Hemos establecido las bases del espacio de probabilidad ($\Omega$,$\mathcal{F}$,$P$), pero para que la función de probabilidad $P$ sea válida, debe cumplir ciertas propiedades fundamentales. Estas propiedades, formuladas por Andrey Kolmogorov, constituyen los axiomas de la probabilidad, que proporcionan un marco matemático riguroso para asignar probabilidades a los eventos de $\mathcal{F}$.
+
+\begin{definicion}{Axiomas de Kolmogorov}
+La función de probabilidad $P$ cumple los siguientes axiomas:
+
+\begin{itemize}
+    \item \textbf{Axioma 1:} $P(A) \geq 0$ para todo evento $A \in \mathcal{F}$.
+    \item \textbf{Axioma 2:} $P(\Omega) = 1$.
+    \item \textbf{Axioma 3:} Para cualquier secuencia de eventos mutuamente excluyentes $A_1, A_2, \ldots$, se cumple que:
+    $$
+    P\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)
+    $$ 
+\end{itemize}
+\end{definicion}
 
