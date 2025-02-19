@@ -11,8 +11,14 @@
 \usepackage{tcolorbox}
 \usepackage{bookmark} 
 \usepackage{xcolor}
+\tcbuselibrary{breakable}
+
 
 \definecolor{definitionH}{RGB}{215, 65, 65}
+
+\definecolor{notaBG}{RGB}{237, 159, 43}
+
+\definecolor{demostracionBG}{RGB}{48, 41, 179}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -39,10 +45,29 @@
 }
 
 \newtcolorbox[auto counter, number within=section]{definicion}[1]{
-  title=Definición \thetcbcounter: #1,
-  fonttitle=\bfseries,
-  coltitle=white,
-  colbacktitle=definitionH
+    title=Definición \thetcbcounter: #1,
+    fonttitle=\bfseries,
+    coltitle=white,
+    colbacktitle=definitionH,
+    colframe=definitionH,
+}
+
+\newtcolorbox{nota}{
+    fonttitle=\bfseries,
+    title=Nota,
+    colbacktitle=notaBG,
+    coltext=black,
+    colframe=notaBG,
+}
+
+\newtcolorbox[auto counter, number within=section]{demostracion}[1]{
+    fonttitle=\bfseries,
+    breakable,
+    title=Demostración \thetcbcounter: #1,
+    colbacktitle=demostracionBG,
+    colframe=demostracionBG,
+    coltext=black,
+    coltitle=white,
 }
 
 \title{Apuntes\\INF280 - Estadística Computacional}

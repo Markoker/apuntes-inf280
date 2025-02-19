@@ -44,7 +44,7 @@ Un \textbf{espacio de probabilidad} es una terna $(\Omega, \mathcal{F}, P)$, don
 \begin{itemize}
     \item $\Omega$ es el espacio muestral, que contiene todos los resultados posibles de un experimento aleatorio.
     \item $\mathcal{F}$ es el espacio de sucesos, que agrupa los resultados en eventos.
-    \item $P$ es la función de probabilidad, que asigna a cada evento un valor entre 0 y 1. 
+    \item $P$ es la función de probabilidad, que asigna a cada evento un valor entre 0 y 1.
 \end{itemize}
 \end{definicion}
 
@@ -61,7 +61,83 @@ La función de probabilidad $P$ cumple los siguientes axiomas:
     \item \textbf{Axioma 3:} Para cualquier secuencia de eventos mutuamente excluyentes $A_1, A_2, \ldots$, se cumple que:
     $$
     P\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)
-    $$ 
+    $$
 \end{itemize}
 \end{definicion}
+
+Estos axiomas establecen las propiedades básicas que debe cumplir la función de probabilidad $P$ para ser válida. El primer axioma establece que la probabilidad de cualquier evento debe ser mayor o igual a cero. El segundo axioma establece que la probabilidad del espacio muestral completo $\Omega$ es igual a uno. El tercer axioma establece que la probabilidad de la unión de eventos mutuamente excluyentes es igual a la suma de las probabilidades de los eventos individuales.
+
+En base a lo anterior, podemos deducir algunas propiedades adicionales de la función de probabilidad $P$:
+
+\begin{definicion}{Propiedades de la probabilidad}
+\begin{enumerate}
+    \item $P(\emptyset) = 0$:
+    La probabilidad del evento vacío es cero.
+
+    \item $P(A^c) = 1 - P(A)$:
+    La probabilidad del complemento de un evento $A$ es igual a uno menos la probabilidad de $A$.
+
+    \item $A \subseteq B \Rightarrow P(A) \leq P(B)$:
+    Si un evento $A$ está contenido en otro evento $B$,
+    entonces la probabilidad de $A$ es menor o igual a la probabilidad de $B$.
+
+    \item $P(A) \leq 1$:
+    La probabilidad de cualquier evento es menor o igual a uno.
+
+    \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$:
+    La probabilidad de la unión de dos eventos es igual a la suma de las probabilidades de los eventos individuales menos la probabilidad de la intersección.
+\end{enumerate}
+\end{definicion}
+
+\begin{demostracion}{Propiedades de la probabilidad}
+\begin{enumerate}
+    \item $P(\emptyset) = 0$:
+        \begin{align*}
+            1 &= P(\Omega) \\
+            1 &= P(\Omega \cup \emptyset) \\
+            1 &= P(\Omega) + P(\emptyset) \\
+            1 &= 1 + P(\emptyset) \\
+            0 &= P(\emptyset)
+        \end{align*}
+
+    \item $P(A^c) = 1 - P(A)$:
+        \begin{align*}
+            A \cup A^c &= \Omega \\
+            P(A \cup A^c) &= P(\Omega) \\
+            P(A) + P(A^c) &= 1 \\
+            P(A^c) &= 1 - P(A)
+        \end{align*}
+
+    \item $A \subseteq B \Rightarrow P(A) \leq P(B)$: \\
+        \begin{align*}
+            A \subseteq B \Rightarrow B &= A \cup (B \cap A^c) \\
+                                   P(B) &= P(A) + P(B \cap A^c) \Rightarrow P(A) \leq P(B)
+        \end{align*}
+
+    \item $P(A) \leq 1$: \\
+        \begin{align*}
+            A \subseteq \Omega \Rightarrow P(A) \leq P(\Omega) = 1
+        \end{align*}
+
+    \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$: \\
+        \begin{align*}
+            A \cup B &= A \cup (B \cap A^c) \\
+            P(A \cup B) &= P(A) + P(B \cap A^c) \\
+                        &= P(A) + P(B \setminus A \cap B) \\
+                        &= P(A) + P(B) - P(A \cap B)
+        \end{align*}
+\end{enumerate}
+\end{demostracion}
+
+\subsection{Probabilidad condicional}
+
+Mantengamos nuestro experimento del dado justo. Supongamos que lanzamos el dado y obtenemos un número par.
+¿Cuál es la probabilidad de que el número obtenido sea 2? Para responder a esta pregunta, necesitamos considerar
+la información adicional que tenemos: el número obtenido es par, es decir, el evento $A = \{2,4,6\}$ ha ocurrido.
+De esta forma, la probabilidad de que el número obtenido sea 2, dado que es par, corresponde a un caso favorable
+($\{2\}$) sobre tres casos posibles ($\{2,4,6\}$), es decir, $\frac{1}{3}$.
+
+Esta noción de probabilidad condicional, que se denota como $P(A|B)$,
+
+
 
