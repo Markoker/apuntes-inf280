@@ -43,7 +43,7 @@ Un \textbf{espacio de probabilidad} es una terna $(\Omega, \mathcal{F}, P)$, don
 
 \begin{itemize}
     \item $\Omega$ es el espacio muestral, que contiene todos los resultados posibles de un experimento aleatorio.
-    \item $\mathcal{F}$ es el espacio de sucesos, que agrupa los resultados en eventos.
+    \item $\mathcal{F}$ es el espacio de sucesos, que agrupa los resultados en conjuntos de resultados llamados \textbf{eventos}.
     \item $P$ es la función de probabilidad, que asigna a cada evento un valor entre 0 y 1.
 \end{itemize}
 \end{definicion}
@@ -66,6 +66,18 @@ La función de probabilidad $P$ cumple los siguientes axiomas:
 \end{definicion}
 
 Estos axiomas establecen las propiedades básicas que debe cumplir la función de probabilidad $P$ para ser válida. El primer axioma establece que la probabilidad de cualquier evento debe ser mayor o igual a cero. El segundo axioma establece que la probabilidad del espacio muestral completo $\Omega$ es igual a uno. El tercer axioma establece que la probabilidad de la unión de eventos mutuamente excluyentes es igual a la suma de las probabilidades de los eventos individuales.
+
+% Nota explicando que los eventos son conjuntos y que por lo tanto soportan union, interseccion, complemento, etc. 
+\begin{nota}
+  Debido a que los eventos son conjuntos, soportan operaciones como la unión, intersección, complemento, etc. Por lo tanto, las propiedades de los conjuntos se aplican a los eventos. 
+
+  Por ejemplo,
+  \begin{enumerate}
+    \item $A \cup B$ es el evento que ocurre si ocurre $A$ o $B$. 
+    \item $A \cap B$ es el evento que ocurre si ocurren $A$ y $B$ simultáneamente.
+    \item $A^c$ es el evento que ocurre si no ocurre $A$.
+  \end{enumerate}
+\end{nota}
 
 En base a lo anterior, podemos deducir algunas propiedades adicionales de la función de probabilidad $P$:
 
@@ -132,12 +144,120 @@ En base a lo anterior, podemos deducir algunas propiedades adicionales de la fun
 \subsection{Probabilidad condicional}
 
 Mantengamos nuestro experimento del dado justo. Supongamos que lanzamos el dado y obtenemos un número par.
-¿Cuál es la probabilidad de que el número obtenido sea 2? Para responder a esta pregunta, necesitamos considerar
-la información adicional que tenemos: el número obtenido es par, es decir, el evento $A = \{2,4,6\}$ ha ocurrido.
-De esta forma, la probabilidad de que el número obtenido sea 2, dado que es par, corresponde a un caso favorable
-($\{2\}$) sobre tres casos posibles ($\{2,4,6\}$), es decir, $\frac{1}{3}$.
+¿Cuál es la probabilidad de que el número obtenido sea menor a 3? Para responder a esta pregunta, necesitamos considerar
+los dos eventos que se nos presentan: el evento $B = \{2,4,6\}$, que corresponde a obtener un número par, y el evento $A = \{1,2\}$,
+que corresponde a obtener un número menor a 3. Queremos calcular la probabilidad de que el número obtenido sea menor a 3 dado que 
+obtuvimos un número par, para ello, contamos cuantos de los casos favorables a $B$ son menores a 3, siendo estos $\{2\}$. Por lo tanto,
+la probabilidad de que el número obtenido sea menor a 3 dado que es par es de uno de cada tres casos, es decir, $\frac{1}{3}$.
 
-Esta noción de probabilidad condicional, que se denota como $P(A|B)$,
+Lo que hemos hecho es restringir nuestro espacio muestral a los resultados correspondientes al evento $B$ y 
+calcular la probabilidad de que el resultado sea menor a 3 en este nuevo espacio muestral.
+
+\begin{definicion}{Probabilidad condicional}
+  La \textbf{probabilidad condicional} de un evento $A$ dado un evento $B$ se denota como $P(A|B)$ y se define como:
+  \[
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+  \] 
+\end{definicion}
+
+\subsection{Independencia de eventos}
+
+En nuestro experimento del dado justo, imaginemos que lanzamos el dado dos veces y queremos saber si el resultado de la primera tirada
+influye en el resultado de la segunda tirada. Para comprobar esto, consideramos dos eventos: $A$ y $B$ correspondietes 
+a los resultados posibles en la primera y segunda tirada respectivamente. Si los eventos son independientes, entonces que ocurra $A$ no 
+afectaría la probabilidad de que ocurra $B$. Por lo tanto, es intuitivo pensar que se debe cumplir que la probabilidad de $B$ dado que 
+ocurrió $A$ es igual a la probabilidad de $B$. 
+
+$$ 
+P(B|A) = P(B)
+$$ 
+
+Comprobemos, ya que el dado es justo, sabemos que $P(A) = P(B) = \frac{1}{6}$, ya que tenemos 6 casos equiprobables. Ahora, para calcular
+$P(B|A)$, necesitamos calcular $P(A \cap B)$, que corresponde a la probabilidad de que ambos eventos ocurran simultáneamente. En este caso,
+$P(A \cap B) = \frac{1}{36}$, ya que corresponde a una de las 36 posibles combinaciones de resultados de las dos tiradas. Por lo tanto,
+
+$$ 
+  P(B|A) = \frac{P(A \cap B)}{P(A)} = \frac{\frac{1}{36}}{\frac{1}{6}} = \frac{1}{6} = P(B)
+$$
+
+Por lo tanto, los eventos $A$ y $B$ son independientes. De manera general, dos eventos $A$ y $B$ son independientes si la probabilidad de que ocurra $B$ dado que ocurrió $A$ es igual a la probabilidad de $B$ o viceversa. 
+
+\begin{definicion}{Independencia de eventos}
+  \[
+    P(A|B) = P(A) \quad \text{y} \quad P(B|A) = P(B)
+  \]
+\end{definicion}
+
+De esta definición se desprende una propiedad importante de la independencia de eventos, partimos del hecho de que $P(A|B) = P(A)$, debido a la independencia de los eventos. Si despejamos $P(A \cap B)$ de la definición de probabilidad condicional, obtenemos:
+
+\[
+  P(A|B) = \frac{P(A \cap B)}{P(B)} = P(A) \Rightarrow P(A \cap B) = P(A) \cdot P(B)
+\]
+
+Podemos extender esta definición a más de dos eventos. Si tenemos un conjunto de eventos independientes $A_1, A_2, \ldots, A_n$, entonces la probabilidad de la intersección de todos los eventos es igual al producto de las probabilidades de los eventos individuales. Esto se obtiene 
+iterando el trabajo anterior para una cantidad $n$ de eventos. 
+
+Partimos de,
+\[
+  P(A_1|A_2 \cap \ldots \cap A_n) = P(A_1)
+\]
+
+Despejamos $P(A_1 \cap A_2 \cap \ldots \cap A_n)$,
+
+\[
+  P(A_1 \cap A_2 \cap \ldots \cap A_n) = P(A_1) \cdot P(A_2 \cap \ldots \cap A_n)
+\]
+
+Luego de repetir el proceso, obtenemos,
+
+\[
+  P(A_1 \cap A_2 \cap \ldots \cap A_n) = P(A_1) \cdot P(A_2) \cdot \ldots \cdot P(A_n)
+\]
+
+\begin{definicion}{Intersección de eventos independientes}
+  Sea un conjunto de eventos \textbf{independientes} $A_1, A_2, \ldots, A_n$, entonces la probabilidad de la intersección de todos los eventos es igual al producto de las probabilidades de los eventos individuales:
+  \[
+    P(A_1 \cap A_2 \cap \ldots \cap A_n) = P(A_1) \cdot P(A_2) \cdot \ldots \cdot P(A_n)
+  \]
+\end{definicion}
+
+\subsection{Teorema de la probabilidad total}
+
+Supongamos que tenemos un conjunto de eventos $B_1, B_2, \ldots, B_n$ que forman una partición del espacio muestral $\Omega$. Esto significa que los eventos son mutuamente excluyentes y su unión es igual al espacio muestral. Si tenemos un evento $A$ cualquiera podemos construirlo al unir todas las intersecciones de $A$ con los eventos de la partición. 
+
+\[
+  A = A \cap \Omega = A \cap (B_1 \cup B_2 \cup \ldots \cup B_n) = (A \cap B_1) \cup (A \cap B_2) \cup \ldots \cup (A \cap B_n)
+\]
+Si calculamos la probabilidad de $A$,
+\[
+  P(A) = P((A \cap B_1) \cup (A \cap B_2) \cup \ldots \cup (A \cap B_n)) = P(A \cap B_1) + P(A \cap B_2) + \ldots + P(A \cap B_n)
+\]
+
+\begin{nota}
+  Podemos sumar las probabilidades de las intersecciones de $A$ con los eventos de la partición, ya que estos eventos son mutuamente excluyentes. 
+\end{nota}
+
+Luego, podemos obtener las intersecciones a partir de la definición de probabilidad condicional,
+
+\[
+  P(A \cap B_i) = P(A|B_i) \cdot P(B_i)
+\]
+
+Sustituyendo en la ecuación anterior,
+
+\[
+  P(A) = P(A|B_1) \cdot P(B_1) + P(A|B_2) \cdot P(B_2) + \ldots + P(A|B_n) \cdot P(B_n)
+\]
+
+De esta forma podemos obtener la probabilidad de un evento $A$ unicamente conociendo como se comporta respecto a la partición del espacio muestral y la probabilidad de los eventos de la partición. 
+
+\begin{definicion}{Teorema de la probabilidad total}
+  Sea un conjunto de eventos $B_1, B_2, \ldots, B_n$ que forman una partición del espacio muestral $\Omega$. Entonces, para cualquier evento $A$,
+  \[
+    P(A) = \sum_{i=1}^{n} P(A|B_i) \cdot P(B_i)
+  \]
+\end{definicion}
+
 
 
 

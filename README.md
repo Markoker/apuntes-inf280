@@ -15,9 +15,9 @@ latex main.tex
 ### Teoría
 
 - **Fundamentos de probabilidad**
-    - [ ] Definición de probabilidad y axiomas
-    - [ ] Espacios de probabilidad
-    - [ ] Independencia
+    - [x] Definición de probabilidad y axiomas
+    - [x] Espacios de probabilidad
+    - [x] Independencia
     - [ ] Probabilidad condicional y teorema de Bayes
 
 - **Variables aleatorias**
