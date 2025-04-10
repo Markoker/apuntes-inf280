@@ -7,7 +7,7 @@ Este repositorio contiene apuntes escritos para el curso de Estadística Computa
 Para compilar los apuntes, ejecute el siguiente comando:
 
 ```sh
-latex main.tex
+sh build.sh
 ```
 
 ## Contenido
@@ -21,8 +21,8 @@ latex main.tex
     - [ ] Probabilidad condicional y teorema de Bayes
 
 - **Variables aleatorias**
-    - [ ] Definición y propiedades
-    - [ ] Función de probabilidad, función de densidad y función de distribución acumulada
+    - [x] Definición y propiedades
+    - [x] Función de probabilidad, función de densidad y función de distribución acumulada
     - [ ] Esperanza, varianza y momentos
     - **Distribuciones discretas**
       - [ ] Distribución Bernoulli
